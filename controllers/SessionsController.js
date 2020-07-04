@@ -9,12 +9,15 @@ exports.new = (req, res) => {
 };
 
 exports.create = (req, res, next) => {
-  passport.authenticate('local', {
+  // add the authentication logic here
+   //local is the thing you want to authenticate using
+   passport.authenticate('local', {
     successRedirect: '/reservations',
     successFlash: 'You were successfully logged in.',
     failureRedirect: '/login',
-    failureFlash: 'Invalid credentials'
-  })(req, res, next);
+    failureFlash: 'Invalid Credentials'
+    //passport.authenticate sends back a function defination
+})(req, res, next);
 };
 
 exports.delete = (req, res) => {

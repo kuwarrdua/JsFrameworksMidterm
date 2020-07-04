@@ -9,11 +9,12 @@ function auth (req, res, next) {
 }
 
 module.exports = router => {
-  router.get('/reservations', auth, index);
-  router.get('/reservations/new', auth, _new);
-  router.get('/reservations/:id', auth, show);
-  router.get('/reservations/:id/edit', auth, edit);
-  router.post('/reservations', auth, create);
-  router.post('/reservations/update', auth, update);
-  router.post('/reservations/delete', auth, _delete);
+  // put your routes here
+  router.get('/reservations', index); //pulic
+  router.get('/reservations/new', auth, _new); // authenticated
+  router.post('/reservations', auth, create);// authenticated
+  router.post('/reservations/update', auth, update);// authenticated
+  router.post('/reservations/delete', auth,  _delete);// authenticated
+  router.get('/reservations/:id/edit', auth, edit);// authenticated
+  router.get('/reservations/:id', show); // authenticated
 };
